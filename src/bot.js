@@ -55,7 +55,6 @@ const commandHandlerForCommandName = {};
 commandHandlerForCommandName['course'] = (msg, args) => {
   (async () => {
     const message = await course(args)
-    console.log("Sending: " + message);
     return msg.channel.createMessage(message);
   })()
 }
@@ -73,7 +72,6 @@ bot.on('messageCreate', async (msg) => {
 
   // Extract the parts of the command and the command name
   const commandName = msg.content.substring(PREFIX.length, msg.content.indexOf(' '));
-  console.log("command: " + commandName);
 
   // Get the appropriate handler for the command, if there is one.
   const commandHandler = commandHandlerForCommandName[commandName];
@@ -83,7 +81,7 @@ bot.on('messageCreate', async (msg) => {
 
   // Separate the command arguments from the command prefix and command name.
   const args = msg.content.substring(msg.content.indexOf(' ') + 1);
-  console.log("args: " + args);
+  console.log(commandName + ": " + args);
 
   try {
       // Execute the command.
