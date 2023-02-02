@@ -1,7 +1,10 @@
 const eris = require('eris');
-const { BOT_TOKEN } = require('../config.json');
-const { PREFIX } = require('../config.json');
+require('dotenv').config();
 
+const BOT_TOKEN = process.env.TOKEN;
+const PREFIX = process.env.PRE;
+
+//COURSE command handling
 async function course (c) {
   c = c.replace(' ', '%20');
   const url = 'https://api.cougargrades.io/catalog/getCourseByName?courseName=' + c.toUpperCase();
@@ -29,8 +32,8 @@ async function course (c) {
   return message;
 };
 
+//bot connection
 const bot = new eris.Client(BOT_TOKEN);
-
 bot.on('ready', () => {
   console.log('Connected and ready.');
 });
@@ -48,6 +51,7 @@ const commandHandlerForCommandName = {};
 //   return msg.channel.createMessage(message);
 // };
 
+//CALL course Function
 commandHandlerForCommandName['course'] = (msg, args) => {
   (async () => {
     const message = await course(args)
@@ -56,22 +60,18 @@ commandHandlerForCommandName['course'] = (msg, args) => {
   })()
 }
 
+//on every message
 bot.on('messageCreate', async (msg) => {
-  if(msg.author.bot) {
-    console.log("that was a bot. screw bots.");
-    return;
-  }
-  console.log('someone sure did send a message');
+  //ignore bots
+  if(msg.author.bot) { return; }
+
+  //store content if not bot
   content = msg.content;
 
   // Ignore any message that doesn't start with the correct prefix.
-  if (!content.startsWith(PREFIX)) {
-    console.log(content + ' does not start with "' + PREFIX +'"');
-      return;
-  }
+  if (!content.startsWith(PREFIX)) { return; }
 
   // Extract the parts of the command and the command name
-  console.log('extract taht bouy');
   const commandName = msg.content.substring(PREFIX.length, msg.content.indexOf(' '));
   console.log("command: " + commandName);
 
