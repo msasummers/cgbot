@@ -1,0 +1,27 @@
+{
+  "name": "cgbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eyiece-krheme/cgbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eyiece-krheme/cgbot/issues"
+  },
+  "homepage": "https://github.com/eyiece-krheme/cgbot#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "config": "^3.3.9",
+    "eris": "github:abalabahaha/eris#dev",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "yuuko": "^2.3.4"
+  }
+}
