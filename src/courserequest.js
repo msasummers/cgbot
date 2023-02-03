@@ -80,7 +80,7 @@ async function course (c) {
         legend:{
             position: 'bottom',
                 labels: {
-                    fontSize: 10,
+                    fontSize: 15,
                     boxWidth: 10,
                     usePointStyle: true
                 }
@@ -131,7 +131,7 @@ async function course (c) {
         options: barOptions_stacked,
     })
     .setWidth(800)
-    .setHeight(50);
+    .setHeight(100);
 
     // Print the chart URL
     console.log(chart.getUrl());
