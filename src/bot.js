@@ -158,23 +158,24 @@ bot.on('ready', () => {
 
 const commandHandlerForCommandName = {};
 
-// commandHandlerForCommandName['say'] = (msg, args) => {
-//   const message = args;
-//   console.log('its gamin time. ' + message);
-
-//   // TODO: Handle invalid command arguments, such as:
-//   // 1. No mention or invalid mention.
-//   // 2. No amount or invalid amount.
-
-//   return msg.channel.createMessage(message);
-// };
-
 //CALL course Function
 commandHandlerForCommandName['course'] = (msg, args) => {
   (async () => {
-    const message = await course(args)
+    const message = await course(args);
     return msg.channel.createMessage({embed: message});
   })()
+}
+
+commandHandlerForCommandName['servers'] = (msg, args) => {
+    (async () => {
+        await bot.guilds; // update the chache for accurate info.
+        let serverCount = bot.guilds.size;
+        bot.editStatus('online', {
+            name: serverCount + ' servers',
+            type: 2
+        });
+        return msg.channel.createMessage("I'm in " + serverCount + " servers. Thanks for asking!")
+    })()
 }
 
 //on every message
@@ -187,9 +188,10 @@ bot.on('messageCreate', async (msg) => {
 
   // Ignore any message that doesn't start with the correct prefix.
   if (!content.startsWith(PREFIX)) { return; }
-
+    commandName = '';
   // Extract the parts of the command and the command name
-  const commandName = msg.content.substring(PREFIX.length, msg.content.indexOf(' '));
+  if(msg.content.indexOf(' ') != -1) { commandName = msg.content.substring(PREFIX.length, msg.content.indexOf(' ')); }
+  else { commandName = msg.content.substring(PREFIX.length); }
 
   // Get the appropriate handler for the command, if there is one.
   const commandHandler = commandHandlerForCommandName[commandName];
