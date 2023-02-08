@@ -7,7 +7,13 @@
 **cg!course <course name> to look up the summary of a course**\
 *i.e. cg!course cosc 3320*
 
+**cg!servers to see the number of servers the bot is active in**\
+
+**Features:**
+- Access data from any course in UH Public Data
+- Suggest mispellings based on smallest Levenshtein distance
+- Rich Presence updated with !servers command
+
 **In development:**
 - Instructor lookup
-- Autocorrect
 - More universities!
