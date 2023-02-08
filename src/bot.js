@@ -2,12 +2,34 @@ const eris = require('eris');
 require('dotenv').config();
 const QuickChart = require('quickchart-js');
 const MessageEmbed = require("davie-eris-embed");
+var leven = require("autocorrect/node_modules/leven");
 
-var path = './src/subjects.txt'
-var autocorrect = require('autocorrect')({dictionary: path})
+var fs=require('fs');
+var data=fs.readFileSync('subjects_and_courses.json', 'utf8');
+var dictObj=JSON.parse(data);
+// console.log(data);
+
+var path = './src/subjects.txt';
+var autocorrect = require('autocorrect')({dictionary: path});
 
 const BOT_TOKEN = process.env.TOKEN;
 const PREFIX = process.env.PRE;
+
+function auto(str, obj) {
+    for(x = 0; x < obj.length; x++) {
+        var distance, bestWord, word, min
+        word = obj[x]
+        distance = leven(str, word)
+
+        if (distance === 0) {
+            return word
+        } else if (min === undefined || distance < min) {
+            min = distance
+            bestWord = word
+        }
+    }    
+    return bestWord;
+}
 
 //COURSE command handling
 async function course (c) {
@@ -149,15 +171,26 @@ async function course (c) {
         //return happy embed :)
         return embed;
     } 
-    catch (e) {
+    catch (e) { //handles mispelling
         //use autocorrect on 'subject' and remove new line
         corrected = autocorrect(c.substring(0, c.indexOf(' ')+1).toUpperCase()).replace(/(\r\n|\n|\r)/gm, "");
+        correctCourse = c.substring(c.indexOf(' ')+1);
+        try { //try to correct course number based on corrected subject
+            console.log(corrected);
+            let subject = dictObj.find(el => el.name === corrected);
+            console.log(subject.number);
+            newCourse = await auto(correctCourse, subject.number);
+            correctCourse = newCourse
+        }
+        catch(e) {
+            console.log(e);
+        }
 
         //suggest correct course
         embed.title = 'Course not found :(';
-        embed.description = "Did you mean: " + corrected + " " + c.substring(c.indexOf(' ')+1) + "?";
+        embed.description = "Did you mean: " + corrected + " " + correctCourse + "?";
 
-        //return error embed
+        //return error embed with suggested course
         return embed;
     }
 };
