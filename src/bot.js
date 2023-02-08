@@ -2,7 +2,7 @@ const eris = require('eris');
 require('dotenv').config();
 const QuickChart = require('quickchart-js');
 const MessageEmbed = require("davie-eris-embed");
-var leven = require("autocorrect/node_modules/leven");
+var leven = require("leven");
 
 var fs=require('fs');
 var data=fs.readFileSync('subjects_and_courses.json', 'utf8');
@@ -176,11 +176,10 @@ async function course (c) {
         corrected = autocorrect(c.substring(0, c.indexOf(' ')+1).toUpperCase()).replace(/(\r\n|\n|\r)/gm, "");
         correctCourse = c.substring(c.indexOf(' ')+1);
         try { //try to correct course number based on corrected subject
-            console.log(corrected);
             let subject = dictObj.find(el => el.name === corrected);
-            console.log(subject.number);
             newCourse = await auto(correctCourse, subject.number);
-            correctCourse = newCourse
+            correctCourse = newCourse;
+	    console.log(corrected + " " + correctCourse);
         }
         catch(e) {
             console.log(e);
