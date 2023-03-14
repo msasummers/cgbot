@@ -34,6 +34,10 @@ function auto(str, obj) {
 //COURSE command handling
 async function course (c) {
     //GET course data with CougarGrades API
+    if(!c.includes(' ')) {
+        var space = c.search(/\d/);
+        c = c.slice(0, space) + " " + c.slice(space);
+    }
     const url = 'https://api.cougargrades.io/catalog/getCourseByName?courseName=' + c.replace(' ', '%20').toUpperCase();
 
     //new blank red embed
