@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/eyiece-krheme/cgbot#readme",
   "dependencies": {
+    "autocorrect": "^1.2.0",
     "body-parser": "^1.20.1",
     "chart.js": "^4.2.0",
     "chartjs": "^0.3.24",
