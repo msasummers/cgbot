@@ -229,7 +229,7 @@ commandHandlerForCommandName['servers'] = (msg, args) => {
 
 let help = {    color: 0xff0000,
                 title: "Cougar Grades Bot Help",
-                description: "prefix: 'cg!' for all commands\n\n**cg!help**\nHopefully you know what this does\n\n**cg!course < SUBJECT #### >**\nShows quick info for any UH course\n*i.e. cg!course COSC 3320*\n\n**cg!servers**\nTells your how many servers this cool cat is in\n\n*Want to invite me to your server? Click my profile*\nDeveloped by: <@431161357879214080>"
+                description: "prefix: 'cg!' for all commands\n\n**cg!help**\nHopefully you know what this does\n\n**cg!course SUBJECT #### **\nShows quick info for any UH course\n*i.e. cg!course COSC 3320*\n\n**cg!servers**\nTells your how many servers this cool cat is in\n\n*Want to invite me to your server? Click my profile*\nDeveloped by: <@431161357879214080>"
 };
 
 //'help' handler
