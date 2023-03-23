@@ -4,6 +4,8 @@
 
 **Made With:** NodeJS, [eris,js](https://github.com/abalabahaha/eris#eris-), autocorrect, chart.js, and [QuickChart](https://quickchart.io/)
 
+**cg!** or **cg!help for command help**
+
 **cg!course <course name> to look up the summary of a course**\
 *i.e. cg!course cosc 3320*
 
