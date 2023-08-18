@@ -220,7 +220,7 @@ bot.on('ready', async () => {
             options: [{required:true, type: 3, name:"course", description:"EX: 'COSC 3320'"}]
         });
 
-        await bot.createCommand(, {
+        await bot.createCommand({
             name: "help",
             type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
             description: "Get help with CougarGrades bot",
