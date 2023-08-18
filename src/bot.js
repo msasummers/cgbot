@@ -15,6 +15,7 @@ const BOT_TOKEN = process.env.TOKEN;
 const PREFIX = process.env.PRE;
 const GUILD_ID = process.env.GUILD_ID
 
+//autocorrect function
 function auto(str, obj) {
     for(x = 0; x < obj.length; x++) {
         var distance, bestWord, word, min
@@ -199,39 +200,52 @@ async function course (c) {
     }
 };
 
-//bot connection
+//------------------
+//STARTUP
+//------------------
+
 const bot = new eris.Client(BOT_TOKEN);
 bot.on('ready', async () => {
- 
-  try {
-    // await bot.deleteGuildCommand(GUILD_ID, "1141871937753186435");
-    await bot.createGuildCommand(GUILD_ID, {
-        name: "servers",
-        type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
-        description: "Check the bot's server count."
-    });
-
-    await bot.createGuildCommand(GUILD_ID, {
-        name: "course",
-        type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
-        description: "Get quick course information.",
-        options: [{type: 3, name:"course", description:"EX: 'COSC 3320'"}]
-    });
-
-    (async () => {
-        await bot.guilds; // update the chache for accurate info.
-        let serverCount = bot.guilds.size;
-        bot.editStatus('online', {
-            name: serverCount + ' servers',
-            type: 2 //"Listening to"
+    try {
+        await bot.createGuildCommand(GUILD_ID, {
+            name: "servers",
+            type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
+            description: "Check the bot's server count."
         });
-    })()
 
-    console.log('Connected and ready.');
-  } catch (err) {
-    console.error(err);
-  };
+        await bot.createGuildCommand(GUILD_ID, {
+            name: "course",
+            type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
+            description: "Get quick course information.",
+            options: [{required:true, type: 3, name:"course", description:"EX: 'COSC 3320'"}]
+        });
+
+        await bot.createGuildCommand(GUILD_ID, {
+            name: "help",
+            type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
+            description: "Get help with CougarGrades bot",
+        });
+
+        //update server count presence on startup
+        (async () => {
+            await bot.guilds; // update the chache for accurate info.
+            let serverCount = bot.guilds.size;
+            bot.editStatus('online', {
+                name: serverCount + ' servers',
+                type: 2 //"Listening to"
+            });
+        })()
+
+        console.log('Connected and ready.');
+    } 
+    catch (err) {
+        console.error(err);
+    };
 });
+
+//------------------
+//SLASH COMMANDS
+//------------------
 
 bot.on("interactionCreate", interaction => {
     if (interaction instanceof eris.CommandInteraction) {
@@ -247,15 +261,25 @@ bot.on("interactionCreate", interaction => {
                 return interaction.createMessage("I'm in " + serverCount + " servers. Thanks for asking!")
             })()
         }
-        else if (interaction.data.name = "course") {
+        else if (interaction.data.name == "course") {
             (async () => {
                 const message = await course(interaction.data.options[0].value);
                 console.log(interaction.data.name + ": " + interaction.data.options[0].value);
                 return interaction.createMessage({embed: message});
             })()
         }
+        else if (interaction.data.name == "help") {
+            (async () => {
+                console.log(interaction.data.name + " requested");
+                return interaction.createMessage({embed: help});
+            })()
+        }
     }
 });
+
+//------------------
+//PREFIX COMMANDS
+//------------------
 
 const commandHandlerForCommandName = {};
 
@@ -282,7 +306,7 @@ commandHandlerForCommandName['servers'] = (msg, args) => {
 
 let help = {    color: 0xff0000,
                 title: "Cougar Grades Bot Help",
-                description: "prefix: 'cg!' for all commands\n\n**cg!help**\nHopefully you know what this does\n\n**cg!course < SUBJECT #### >**\nShows quick info for any UH course\n*i.e. cg!course COSC 3320*\n\n**cg!servers**\nTells your how many servers this cool cat is in\n\n*Want to invite me to your server? Click my profile*\nDeveloped by: <@431161357879214080>"
+                description: "**/help**\nHopefully you know what this does\n\n**/course < SUBJECT #### >**\nShows quick info for any UH course\n*i.e. /course COSC 3320*\n\n**/servers**\nTells your how many servers this cool cat is in\n\nAll commands are also avaliabe with the 'cg!' prefix *(cg!course cosc 3320)*, but this functionality will be removed soon\n\n*Want to invite me to your server? Click my profile*\nDeveloped by: <@431161357879214080>"
 };
 
 //'help' handler
