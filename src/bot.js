@@ -243,13 +243,14 @@ bot.on("interactionCreate", interaction => {
                     name: serverCount + ' servers',
                     type: 2 //"Listening to"
                 });
+                console.log(interaction.data.name + ": " + serverCount);
                 return interaction.createMessage("I'm in " + serverCount + " servers. Thanks for asking!")
             })()
         }
         else if (interaction.data.name = "course") {
             (async () => {
                 const message = await course(interaction.data.options[0].value);
-                console.log(interaction.data.name + ": " + interaction.data.options[0].value)
+                console.log(interaction.data.name + ": " + interaction.data.options[0].value);
                 return interaction.createMessage({embed: message});
             })()
         }
