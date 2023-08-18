@@ -185,7 +185,7 @@ async function course (c) {
             let subject = dictObj.find(el => el.name === corrected);
             newCourse = await auto(correctCourse, subject.number);
             correctCourse = newCourse;
-	    console.log(corrected + " " + correctCourse);
+	    console.log("autocorrect: " + corrected + " " + correctCourse);
         }
         catch(e) {
             console.log(e);
