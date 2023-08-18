@@ -207,20 +207,20 @@ async function course (c) {
 const bot = new eris.Client(BOT_TOKEN);
 bot.on('ready', async () => {
     try {
-        await bot.createGuildCommand(GUILD_ID, {
+        await bot.createCommand({
             name: "servers",
             type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
             description: "Check the bot's server count."
         });
 
-        await bot.createGuildCommand(GUILD_ID, {
+        await bot.createCommand({
             name: "course",
             type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
             description: "Get quick course information.",
             options: [{required:true, type: 3, name:"course", description:"EX: 'COSC 3320'"}]
         });
 
-        await bot.createGuildCommand(GUILD_ID, {
+        await bot.createCommand(, {
             name: "help",
             type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
             description: "Get help with CougarGrades bot",
