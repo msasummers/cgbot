@@ -7,13 +7,13 @@ var leven = require("leven");
 var fs=require('fs');
 var data=fs.readFileSync('subjects_and_courses.json', 'utf8');
 var dictObj=JSON.parse(data);
-// console.log(data);
 
 var path = './src/subjects.txt';
 var autocorrect = require('autocorrect')({dictionary: path});
 
 const BOT_TOKEN = process.env.TOKEN;
 const PREFIX = process.env.PRE;
+const GUILD_ID = process.env.GUILD_ID
 
 function auto(str, obj) {
     for(x = 0; x < obj.length; x++) {
@@ -168,8 +168,9 @@ async function course (c) {
         embed.description = content._id;
         embed.url = "https://cougargrades.io/c/" + c.replace(' ', '%20').toUpperCase();
         embed.fields = [{name: 'Average GPA: ' + content.GPA.average.toFixed(4) ,
-            value: content.GPA.standardDeviation.toFixed(3) + ' SD  |  ' + (totalW/totalEnrolled*100).toFixed(2) + '% W',
-            inline: true}];
+                        value: content.GPA.standardDeviation.toFixed(3) + ' SD  |  ' + (totalW/totalEnrolled*100).toFixed(2) + '% W',
+                        inline: true},
+                    {name: "We\\'re migrating to slash commands!", value: "Try: /course"}];
         embed.image = {url: chart.getUrl()};
 
         //return happy embed :)
@@ -200,18 +201,69 @@ async function course (c) {
 
 //bot connection
 const bot = new eris.Client(BOT_TOKEN);
-bot.on('ready', () => {
-  console.log('Connected and ready.');
+bot.on('ready', async () => {
+ 
+  try {
+    // await bot.deleteGuildCommand(GUILD_ID, "1141871937753186435");
+    await bot.createGuildCommand(GUILD_ID, {
+        name: "servers",
+        type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
+        description: "Check the bot's server count."
+    });
+
+    await bot.createGuildCommand(GUILD_ID, {
+        name: "course",
+        type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
+        description: "Get quick course information.",
+        options: [{type: 3, name:"course", description:"EX: 'COSC 3320'"}]
+    });
+
+    (async () => {
+        await bot.guilds; // update the chache for accurate info.
+        let serverCount = bot.guilds.size;
+        bot.editStatus('online', {
+            name: serverCount + ' servers',
+            type: 2 //"Listening to"
+        });
+    })()
+
+    console.log('Connected and ready.');
+  } catch (err) {
+    console.error(err);
+  };
+});
+
+bot.on("interactionCreate", interaction => {
+    if (interaction instanceof eris.CommandInteraction) {
+        if (interaction.data.name == "servers") {
+            (async () => {
+                await bot.guilds; // update the chache for accurate info.
+                let serverCount = bot.guilds.size;
+                bot.editStatus('online', {
+                    name: serverCount + ' servers',
+                    type: 2 //"Listening to"
+                });
+                return interaction.createMessage("I'm in " + serverCount + " servers. Thanks for asking!")
+            })()
+        }
+        else if (interaction.data.name = "course") {
+            (async () => {
+                const message = await course(interaction.data.options[0].value);
+                console.log(interaction.data.name + ": " + interaction.data.options[0].value)
+                return interaction.createMessage({embed: message});
+            })()
+        }
+    }
 });
 
 const commandHandlerForCommandName = {};
 
 //'course' handler
 commandHandlerForCommandName['course'] = (msg, args) => {
-  (async () => {
-    const message = await course(args);
-    return msg.channel.createMessage({embed: message});
-  })()
+    (async () => {
+        const message = await course(args);
+        return msg.channel.createMessage({embed: message});
+    })()
 }
 
 //'servers' handler
