@@ -7,14 +7,15 @@ var leven = require("leven");
 var fs=require('fs');
 var data=fs.readFileSync('subjects_and_courses.json', 'utf8');
 var dictObj=JSON.parse(data);
-// console.log(data);
 
 var path = './src/subjects.txt';
 var autocorrect = require('autocorrect')({dictionary: path});
 
 const BOT_TOKEN = process.env.TOKEN;
 const PREFIX = process.env.PRE;
+const GUILD_ID = process.env.GUILD_ID
 
+//autocorrect function
 function auto(str, obj) {
     for(x = 0; x < obj.length; x++) {
         var distance, bestWord, word, min
@@ -168,8 +169,9 @@ async function course (c) {
         embed.description = content._id;
         embed.url = "https://cougargrades.io/c/" + c.replace(' ', '%20').toUpperCase();
         embed.fields = [{name: 'Average GPA: ' + content.GPA.average.toFixed(4) ,
-            value: content.GPA.standardDeviation.toFixed(3) + ' SD  |  ' + (totalW/totalEnrolled*100).toFixed(2) + '% W',
-            inline: true}];
+                        value: content.GPA.standardDeviation.toFixed(3) + ' SD  |  ' + (totalW/totalEnrolled*100).toFixed(2) + '% W',
+                        inline: true},
+                    {name: "We\\'re migrating to slash commands!", value: "Try: /course"}];
         embed.image = {url: chart.getUrl()};
 
         //return happy embed :)
@@ -183,7 +185,7 @@ async function course (c) {
             let subject = dictObj.find(el => el.name === corrected);
             newCourse = await auto(correctCourse, subject.number);
             correctCourse = newCourse;
-	    console.log(corrected + " " + correctCourse);
+	    console.log("autocorrect: " + corrected + " " + correctCourse);
         }
         catch(e) {
             console.log(e);
@@ -198,20 +200,95 @@ async function course (c) {
     }
 };
 
-//bot connection
+//------------------
+//STARTUP
+//------------------
+
 const bot = new eris.Client(BOT_TOKEN);
-bot.on('ready', () => {
-  console.log('Connected and ready.');
+bot.on('ready', async () => {
+    try {
+        await bot.createGuildCommand(GUILD_ID, {
+            name: "servers",
+            type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
+            description: "Check the bot's server count."
+        });
+
+        await bot.createGuildCommand(GUILD_ID, {
+            name: "course",
+            type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
+            description: "Get quick course information.",
+            options: [{required:true, type: 3, name:"course", description:"EX: 'COSC 3320'"}]
+        });
+
+        await bot.createGuildCommand(GUILD_ID, {
+            name: "help",
+            type: eris.Constants.ApplicationCommandTypes.CHAT_INPUT,
+            description: "Get help with CougarGrades bot",
+        });
+
+        //update server count presence on startup
+        (async () => {
+            await bot.guilds; // update the chache for accurate info.
+            let serverCount = bot.guilds.size;
+            bot.editStatus('online', {
+                name: serverCount + ' servers',
+                type: 2 //"Listening to"
+            });
+        })()
+
+        console.log('Connected and ready.');
+    } 
+    catch (err) {
+        console.error(err);
+    };
 });
+
+//------------------
+//SLASH COMMANDS
+//------------------
+
+bot.on("interactionCreate", interaction => {
+    if (interaction instanceof eris.CommandInteraction) {
+        if (interaction.data.name == "servers") {
+            (async () => {
+                await bot.guilds; // update the chache for accurate info.
+                let serverCount = bot.guilds.size;
+                bot.editStatus('online', {
+                    name: serverCount + ' servers',
+                    type: 2 //"Listening to"
+                });
+                console.log(interaction.data.name + ": " + serverCount);
+                return interaction.createMessage("I'm in " + serverCount + " servers. Thanks for asking!")
+            })()
+        }
+        else if (interaction.data.name == "course") {
+            (async () => {
+                const message = await course(interaction.data.options[0].value);
+                console.log(interaction.data.name + ": " + interaction.data.options[0].value);
+                return interaction.createMessage({embed: message});
+            })()
+        }
+        else if (interaction.data.name == "help") {
+            (async () => {
+                console.log(interaction.data.name + " requested");
+                return interaction.createMessage({embed: help});
+            })()
+        }
+    }
+});
+
+//------------------
+//PREFIX COMMANDS
+//------------------
 
 const commandHandlerForCommandName = {};
 
 //'course' handler
 commandHandlerForCommandName['course'] = (msg, args) => {
-  (async () => {
-    const message = await course(args);
-    return msg.channel.createMessage({embed: message});
-  })()
+    (async () => {
+        const message = await course(args);
+        return msg.channel.createMessage({embed: message});
+    })()
 }
 
 //'servers' handler
@@ -229,7 +306,7 @@ commandHandlerForCommandName['servers'] = (msg, args) => {
 
 let help = {    color: 0xff0000,
                 title: "Cougar Grades Bot Help",
-                description: "prefix: 'cg!' for all commands\n\n**cg!help**\nHopefully you know what this does\n\n**cg!course < SUBJECT #### >**\nShows quick info for any UH course\n*i.e. cg!course COSC 3320*\n\n**cg!servers**\nTells your how many servers this cool cat is in\n\n*Want to invite me to your server? Click my profile*\nDeveloped by: <@431161357879214080>"
+                description: "**/help**\nHopefully you know what this does\n\n**/course < SUBJECT #### >**\nShows quick info for any UH course\n*i.e. /course COSC 3320*\n\n**/servers**\nTells your how many servers this cool cat is in\n\nAll commands are also avaliabe with the 'cg!' prefix *(cg!course cosc 3320)*, but this functionality will be removed soon\n\n*Want to invite me to your server? Click my profile*\nDeveloped by: <@431161357879214080>"
 };
 
 //'help' handler
