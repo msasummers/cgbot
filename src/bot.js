@@ -263,6 +263,7 @@ bot.on("interactionCreate", interaction => {
         }
         else if (interaction.data.name == "course") {
             (async () => {
+		await interaction.defer()
                 const message = await course(interaction.data.options[0].value);
                 console.log(interaction.data.name + ": " + interaction.data.options[0].value);
                 return interaction.createMessage({embed: message});
