@@ -20,7 +20,6 @@ All commands are also avaliabe with the 'cg!' prefix *(cg!course cosc 3320)*, bu
 - Discord.js v13 Application Commands
 
 **In development:**
-- Databasing Course Information
-- Storing Discord Servers for Courses
+- Caching popular Course Information
 - Instructor lookup
 - More universities!
