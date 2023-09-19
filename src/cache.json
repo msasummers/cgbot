@@ -1,0 +1,142 @@
+[
+  {
+    "color": 16711680,
+    "title": "Algorithms and Data Structures",
+    "description": "COSC 3320",
+    "url": "https://cougargrades.io/c/COSC%203320",
+    "fields": [
+      {
+        "name": "Average GPA: 2.6384",
+        "value": "0.543 SD  |  13.38% W",
+        "inline": true
+      },
+      {
+        "name": "We\\'re migrating to slash commands!",
+        "value": "Try: /course"
+      }
+    ],
+    "image": {
+      "url": "https://quickchart.io/chart?c=%7Btype%3A%27horizontalBar%27%2Cdata%3A%7Blabels%3A%5B%27+%27%5D%2Cdatasets%3A%5B%7Blabel%3A%27A%3A+29.0%25%27%2Cdata%3A%5B801%5D%2CbackgroundColor%3A%27rgb%28135%2C+206%2C+250%29%27%7D%2C%7Blabel%3A%27B%3A+32.2%25%27%2Cdata%3A%5B887%5D%2CbackgroundColor%3A%27rgb%28144%2C+238%2C+144%29%27%7D%2C%7Blabel%3A%27C%3A+14.1%25%27%2Cdata%3A%5B390%5D%2CbackgroundColor%3A%27rgb%28255%2C+255%2C+0%29%27%7D%2C%7Blabel%3A%27D%3A+3.4%25%27%2Cdata%3A%5B93%5D%2CbackgroundColor%3A%27rgb%28255%2C+160%2C+122%29%27%7D%2C%7Blabel%3A%27F%3A+2.4%25%27%2Cdata%3A%5B65%5D%2CbackgroundColor%3A%27rgb%28205%2C+92%2C+92%29%27%7D%2C%7Blabel%3A%27S%3A+5.5%25%27%2Cdata%3A%5B153%5D%2CbackgroundColor%3A%27rgb%28143%2C+188%2C+143%29%27%7D%2C%7Blabel%3A%27NCR%3A+0.0%25%27%2Cdata%3A%5B0%5D%2CbackgroundColor%3A%27rgb%28216%2C+112%2C+147%29%27%7D%2C%7Blabel%3A%27W%3A+13.4%25%27%2Cdata%3A%5B369%5D%2CbackgroundColor%3A%27rgb%28147%2C+112%2C+216%29%27%7D%5D%7D%2Coptions%3A%7Btooltips%3A%7Benabled%3Afalse%7D%2Clayout%3A%7Bpadding%3A10%7D%2Cscales%3A%7BxAxes%3A%5B%7Boffset%3Atrue%2Cticks%3A%7Bmin%3A0%2Cmax%3A2758%2CstepSize%3A2%2Cdisplay%3Afalse%7D%2CscaleLabel%3A%7Bdisplay%3Afalse%7D%2CgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cstacked%3Atrue%2Clabel%3Afalse%7D%5D%2CyAxes%3A%5B%7BgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cticks%3A%7Bmin%3A0%2Cmax%3A2758%2CstepSize%3A1%2Cdisplay%3Afalse%7D%2Cstacked%3Atrue%7D%5D%7D%2Clegend%3A%7Bposition%3A%27bottom%27%2Clabels%3A%7BfontSize%3A20%2CfontStyle%3A%27bold%27%2CboxWidth%3A5%2CusePointStyle%3Atrue%7D%7D%7D%7D&w=800&h=125&bkg=%23ffffff&f=png&v=2.9.4"
+    }
+  },
+  {
+    "color": 16711680,
+    "title": "Int To Automata & Comp",
+    "description": "COSC 3340",
+    "url": "https://cougargrades.io/c/COSC%203340",
+    "fields": [
+      {
+        "name": "Average GPA: 2.6124",
+        "value": "0.738 SD  |  12.27% W",
+        "inline": true
+      },
+      {
+        "name": "We\\'re migrating to slash commands!",
+        "value": "Try: /course"
+      }
+    ],
+    "image": {
+      "url": "https://quickchart.io/chart?c=%7Btype%3A%27horizontalBar%27%2Cdata%3A%7Blabels%3A%5B%27+%27%5D%2Cdatasets%3A%5B%7Blabel%3A%27A%3A+33.5%25%27%2Cdata%3A%5B887%5D%2CbackgroundColor%3A%27rgb%28135%2C+206%2C+250%29%27%7D%2C%7Blabel%3A%27B%3A+23.9%25%27%2Cdata%3A%5B634%5D%2CbackgroundColor%3A%27rgb%28144%2C+238%2C+144%29%27%7D%2C%7Blabel%3A%27C%3A+13.2%25%27%2Cdata%3A%5B349%5D%2CbackgroundColor%3A%27rgb%28255%2C+255%2C+0%29%27%7D%2C%7Blabel%3A%27D%3A+5.6%25%27%2Cdata%3A%5B149%5D%2CbackgroundColor%3A%27rgb%28255%2C+160%2C+122%29%27%7D%2C%7Blabel%3A%27F%3A+3.0%25%27%2Cdata%3A%5B79%5D%2CbackgroundColor%3A%27rgb%28205%2C+92%2C+92%29%27%7D%2C%7Blabel%3A%27S%3A+8.5%25%27%2Cdata%3A%5B225%5D%2CbackgroundColor%3A%27rgb%28143%2C+188%2C+143%29%27%7D%2C%7Blabel%3A%27NCR%3A+0.0%25%27%2Cdata%3A%5B0%5D%2CbackgroundColor%3A%27rgb%28216%2C+112%2C+147%29%27%7D%2C%7Blabel%3A%27W%3A+12.3%25%27%2Cdata%3A%5B325%5D%2CbackgroundColor%3A%27rgb%28147%2C+112%2C+216%29%27%7D%5D%7D%2Coptions%3A%7Btooltips%3A%7Benabled%3Afalse%7D%2Clayout%3A%7Bpadding%3A10%7D%2Cscales%3A%7BxAxes%3A%5B%7Boffset%3Atrue%2Cticks%3A%7Bmin%3A0%2Cmax%3A2648%2CstepSize%3A2%2Cdisplay%3Afalse%7D%2CscaleLabel%3A%7Bdisplay%3Afalse%7D%2CgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cstacked%3Atrue%2Clabel%3Afalse%7D%5D%2CyAxes%3A%5B%7BgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cticks%3A%7Bmin%3A0%2Cmax%3A2648%2CstepSize%3A1%2Cdisplay%3Afalse%7D%2Cstacked%3Atrue%7D%5D%7D%2Clegend%3A%7Bposition%3A%27bottom%27%2Clabels%3A%7BfontSize%3A20%2CfontStyle%3A%27bold%27%2CboxWidth%3A5%2CusePointStyle%3Atrue%7D%7D%7D%7D&w=800&h=125&bkg=%23ffffff&f=png&v=2.9.4"
+    }
+  },
+  {
+    "color": 16711680,
+    "title": "Operating Systems",
+    "description": "COSC 3360",
+    "url": "https://cougargrades.io/c/COSC%203360",
+    "fields": [
+      {
+        "name": "Average GPA: 2.2707",
+        "value": "0.517 SD  |  13.99% W",
+        "inline": true
+      },
+      {
+        "name": "We\\'re migrating to slash commands!",
+        "value": "Try: /course"
+      }
+    ],
+    "image": {
+      "url": "https://quickchart.io/chart?c=%7Btype%3A%27horizontalBar%27%2Cdata%3A%7Blabels%3A%5B%27+%27%5D%2Cdatasets%3A%5B%7Blabel%3A%27A%3A+21.3%25%27%2Cdata%3A%5B582%5D%2CbackgroundColor%3A%27rgb%28135%2C+206%2C+250%29%27%7D%2C%7Blabel%3A%27B%3A+30.6%25%27%2Cdata%3A%5B835%5D%2CbackgroundColor%3A%27rgb%28144%2C+238%2C+144%29%27%7D%2C%7Blabel%3A%27C%3A+12.5%25%27%2Cdata%3A%5B341%5D%2CbackgroundColor%3A%27rgb%28255%2C+255%2C+0%29%27%7D%2C%7Blabel%3A%27D%3A+4.7%25%27%2Cdata%3A%5B128%5D%2CbackgroundColor%3A%27rgb%28255%2C+160%2C+122%29%27%7D%2C%7Blabel%3A%27F%3A+7.6%25%27%2Cdata%3A%5B207%5D%2CbackgroundColor%3A%27rgb%28205%2C+92%2C+92%29%27%7D%2C%7Blabel%3A%27S%3A+9.4%25%27%2Cdata%3A%5B256%5D%2CbackgroundColor%3A%27rgb%28143%2C+188%2C+143%29%27%7D%2C%7Blabel%3A%27NCR%3A+0.0%25%27%2Cdata%3A%5B0%5D%2CbackgroundColor%3A%27rgb%28216%2C+112%2C+147%29%27%7D%2C%7Blabel%3A%27W%3A+14.0%25%27%2Cdata%3A%5B382%5D%2CbackgroundColor%3A%27rgb%28147%2C+112%2C+216%29%27%7D%5D%7D%2Coptions%3A%7Btooltips%3A%7Benabled%3Afalse%7D%2Clayout%3A%7Bpadding%3A10%7D%2Cscales%3A%7BxAxes%3A%5B%7Boffset%3Atrue%2Cticks%3A%7Bmin%3A0%2Cmax%3A2731%2CstepSize%3A2%2Cdisplay%3Afalse%7D%2CscaleLabel%3A%7Bdisplay%3Afalse%7D%2CgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cstacked%3Atrue%2Clabel%3Afalse%7D%5D%2CyAxes%3A%5B%7BgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cticks%3A%7Bmin%3A0%2Cmax%3A2731%2CstepSize%3A1%2Cdisplay%3Afalse%7D%2Cstacked%3Atrue%7D%5D%7D%2Clegend%3A%7Bposition%3A%27bottom%27%2Clabels%3A%7BfontSize%3A20%2CfontStyle%3A%27bold%27%2CboxWidth%3A5%2CusePointStyle%3Atrue%7D%7D%7D%7D&w=800&h=125&bkg=%23ffffff&f=png&v=2.9.4"
+    }
+  },
+  {
+    "color": 16711680,
+    "title": "Intro To Computer Networks",
+    "description": "COSC 4377",
+    "url": "https://cougargrades.io/c/COSC%204377",
+    "fields": [
+      {
+        "name": "Average GPA: 3.3085",
+        "value": "0.313 SD  |  1.81% W",
+        "inline": true
+      },
+      {
+        "name": "We\\'re migrating to slash commands!",
+        "value": "Try: /course"
+      }
+    ],
+    "image": {
+      "url": "https://quickchart.io/chart?c=%7Btype%3A%27horizontalBar%27%2Cdata%3A%7Blabels%3A%5B%27+%27%5D%2Cdatasets%3A%5B%7Blabel%3A%27A%3A+56.2%25%27%2Cdata%3A%5B713%5D%2CbackgroundColor%3A%27rgb%28135%2C+206%2C+250%29%27%7D%2C%7Blabel%3A%27B%3A+32.3%25%27%2Cdata%3A%5B410%5D%2CbackgroundColor%3A%27rgb%28144%2C+238%2C+144%29%27%7D%2C%7Blabel%3A%27C%3A+4.6%25%27%2Cdata%3A%5B58%5D%2CbackgroundColor%3A%27rgb%28255%2C+255%2C+0%29%27%7D%2C%7Blabel%3A%27D%3A+0.4%25%27%2Cdata%3A%5B5%5D%2CbackgroundColor%3A%27rgb%28255%2C+160%2C+122%29%27%7D%2C%7Blabel%3A%27F%3A+1.5%25%27%2Cdata%3A%5B19%5D%2CbackgroundColor%3A%27rgb%28205%2C+92%2C+92%29%27%7D%2C%7Blabel%3A%27S%3A+3.2%25%27%2Cdata%3A%5B40%5D%2CbackgroundColor%3A%27rgb%28143%2C+188%2C+143%29%27%7D%2C%7Blabel%3A%27NCR%3A+0.0%25%27%2Cdata%3A%5B0%5D%2CbackgroundColor%3A%27rgb%28216%2C+112%2C+147%29%27%7D%2C%7Blabel%3A%27W%3A+1.8%25%27%2Cdata%3A%5B23%5D%2CbackgroundColor%3A%27rgb%28147%2C+112%2C+216%29%27%7D%5D%7D%2Coptions%3A%7Btooltips%3A%7Benabled%3Afalse%7D%2Clayout%3A%7Bpadding%3A10%7D%2Cscales%3A%7BxAxes%3A%5B%7Boffset%3Atrue%2Cticks%3A%7Bmin%3A0%2Cmax%3A1268%2CstepSize%3A2%2Cdisplay%3Afalse%7D%2CscaleLabel%3A%7Bdisplay%3Afalse%7D%2CgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cstacked%3Atrue%2Clabel%3Afalse%7D%5D%2CyAxes%3A%5B%7BgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cticks%3A%7Bmin%3A0%2Cmax%3A1268%2CstepSize%3A1%2Cdisplay%3Afalse%7D%2Cstacked%3Atrue%7D%5D%7D%2Clegend%3A%7Bposition%3A%27bottom%27%2Clabels%3A%7BfontSize%3A20%2CfontStyle%3A%27bold%27%2CboxWidth%3A5%2CusePointStyle%3Atrue%7D%7D%7D%7D&w=800&h=125&bkg=%23ffffff&f=png&v=2.9.4"
+    }
+  },
+  {
+    "color": 16711680,
+    "title": "Data Science and Machine Learn",
+    "description": "MATH 4322",
+    "url": "https://cougargrades.io/c/MATH%204322",
+    "fields": [
+      {
+        "name": "Average GPA: 3.4578",
+        "value": "0.279 SD  |  1.88% W",
+        "inline": true
+      },
+      {
+        "name": "We\\'re migrating to slash commands!",
+        "value": "Try: /course"
+      }
+    ],
+    "image": {
+      "url": "https://quickchart.io/chart?c=%7Btype%3A%27horizontalBar%27%2Cdata%3A%7Blabels%3A%5B%27+%27%5D%2Cdatasets%3A%5B%7Blabel%3A%27A%3A+70.9%25%27%2Cdata%3A%5B339%5D%2CbackgroundColor%3A%27rgb%28135%2C+206%2C+250%29%27%7D%2C%7Blabel%3A%27B%3A+17.2%25%27%2Cdata%3A%5B82%5D%2CbackgroundColor%3A%27rgb%28144%2C+238%2C+144%29%27%7D%2C%7Blabel%3A%27C%3A+4.2%25%27%2Cdata%3A%5B20%5D%2CbackgroundColor%3A%27rgb%28255%2C+255%2C+0%29%27%7D%2C%7Blabel%3A%27D%3A+0.0%25%27%2Cdata%3A%5B0%5D%2CbackgroundColor%3A%27rgb%28255%2C+160%2C+122%29%27%7D%2C%7Blabel%3A%27F%3A+1.0%25%27%2Cdata%3A%5B5%5D%2CbackgroundColor%3A%27rgb%28205%2C+92%2C+92%29%27%7D%2C%7Blabel%3A%27S%3A+4.8%25%27%2Cdata%3A%5B23%5D%2CbackgroundColor%3A%27rgb%28143%2C+188%2C+143%29%27%7D%2C%7Blabel%3A%27NCR%3A+0.0%25%27%2Cdata%3A%5B0%5D%2CbackgroundColor%3A%27rgb%28216%2C+112%2C+147%29%27%7D%2C%7Blabel%3A%27W%3A+1.9%25%27%2Cdata%3A%5B9%5D%2CbackgroundColor%3A%27rgb%28147%2C+112%2C+216%29%27%7D%5D%7D%2Coptions%3A%7Btooltips%3A%7Benabled%3Afalse%7D%2Clayout%3A%7Bpadding%3A10%7D%2Cscales%3A%7BxAxes%3A%5B%7Boffset%3Atrue%2Cticks%3A%7Bmin%3A0%2Cmax%3A478%2CstepSize%3A2%2Cdisplay%3Afalse%7D%2CscaleLabel%3A%7Bdisplay%3Afalse%7D%2CgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cstacked%3Atrue%2Clabel%3Afalse%7D%5D%2CyAxes%3A%5B%7BgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cticks%3A%7Bmin%3A0%2Cmax%3A478%2CstepSize%3A1%2Cdisplay%3Afalse%7D%2Cstacked%3Atrue%7D%5D%7D%2Clegend%3A%7Bposition%3A%27bottom%27%2Clabels%3A%7BfontSize%3A20%2CfontStyle%3A%27bold%27%2CboxWidth%3A5%2CusePointStyle%3Atrue%7D%7D%7D%7D&w=800&h=125&bkg=%23ffffff&f=png&v=2.9.4"
+    }
+  },
+  {
+    "color": 16711680,
+    "title": "Earth Systems",
+    "description": "GEOL 1340",
+    "url": "https://cougargrades.io/c/GEOL%201340",
+    "fields": [
+      {
+        "name": "Average GPA: 2.5608",
+        "value": "0.362 SD  |  6.51% W",
+        "inline": true
+      },
+      {
+        "name": "We\\'re migrating to slash commands!",
+        "value": "Try: /course"
+      }
+    ],
+    "image": {
+      "url": "https://quickchart.io/chart?c=%7Btype%3A%27horizontalBar%27%2Cdata%3A%7Blabels%3A%5B%27+%27%5D%2Cdatasets%3A%5B%7Blabel%3A%27A%3A+30.9%25%27%2Cdata%3A%5B3093%5D%2CbackgroundColor%3A%27rgb%28135%2C+206%2C+250%29%27%7D%2C%7Blabel%3A%27B%3A+27.5%25%27%2Cdata%3A%5B2759%5D%2CbackgroundColor%3A%27rgb%28144%2C+238%2C+144%29%27%7D%2C%7Blabel%3A%27C%3A+16.1%25%27%2Cdata%3A%5B1615%5D%2CbackgroundColor%3A%27rgb%28255%2C+255%2C+0%29%27%7D%2C%7Blabel%3A%27D%3A+7.4%25%27%2Cdata%3A%5B738%5D%2CbackgroundColor%3A%27rgb%28255%2C+160%2C+122%29%27%7D%2C%7Blabel%3A%27F%3A+6.2%25%27%2Cdata%3A%5B620%5D%2CbackgroundColor%3A%27rgb%28205%2C+92%2C+92%29%27%7D%2C%7Blabel%3A%27S%3A+5.4%25%27%2Cdata%3A%5B538%5D%2CbackgroundColor%3A%27rgb%28143%2C+188%2C+143%29%27%7D%2C%7Blabel%3A%27NCR%3A+0.0%25%27%2Cdata%3A%5B0%5D%2CbackgroundColor%3A%27rgb%28216%2C+112%2C+147%29%27%7D%2C%7Blabel%3A%27W%3A+6.5%25%27%2Cdata%3A%5B652%5D%2CbackgroundColor%3A%27rgb%28147%2C+112%2C+216%29%27%7D%5D%7D%2Coptions%3A%7Btooltips%3A%7Benabled%3Afalse%7D%2Clayout%3A%7Bpadding%3A10%7D%2Cscales%3A%7BxAxes%3A%5B%7Boffset%3Atrue%2Cticks%3A%7Bmin%3A0%2Cmax%3A10015%2CstepSize%3A2%2Cdisplay%3Afalse%7D%2CscaleLabel%3A%7Bdisplay%3Afalse%7D%2CgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cstacked%3Atrue%2Clabel%3Afalse%7D%5D%2CyAxes%3A%5B%7BgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cticks%3A%7Bmin%3A0%2Cmax%3A10015%2CstepSize%3A1%2Cdisplay%3Afalse%7D%2Cstacked%3Atrue%7D%5D%7D%2Clegend%3A%7Bposition%3A%27bottom%27%2Clabels%3A%7BfontSize%3A20%2CfontStyle%3A%27bold%27%2CboxWidth%3A5%2CusePointStyle%3Atrue%7D%7D%7D%7D&w=800&h=125&bkg=%23ffffff&f=png&v=2.9.4"
+    }
+  },
+  {
+    "color": 16711680,
+    "title": "First Year Writing I",
+    "description": "ENGL 1301",
+    "url": "https://cougargrades.io/c/ENGL%201301",
+    "fields": [
+      {
+        "name": "Average GPA: 2.9172",
+        "value": "0.534 SD  |  7.05% W",
+        "inline": true
+      },
+      {
+        "name": "We\\'re migrating to slash commands!",
+        "value": "Try: /course"
+      }
+    ],
+    "image": {
+      "url": "https://quickchart.io/chart?c=%7Btype%3A%27horizontalBar%27%2Cdata%3A%7Blabels%3A%5B%27+%27%5D%2Cdatasets%3A%5B%7Blabel%3A%27A%3A+49.1%25%27%2Cdata%3A%5B1440%5D%2CbackgroundColor%3A%27rgb%28135%2C+206%2C+250%29%27%7D%2C%7Blabel%3A%27B%3A+20.2%25%27%2Cdata%3A%5B592%5D%2CbackgroundColor%3A%27rgb%28144%2C+238%2C+144%29%27%7D%2C%7Blabel%3A%27C%3A+8.5%25%27%2Cdata%3A%5B250%5D%2CbackgroundColor%3A%27rgb%28255%2C+255%2C+0%29%27%7D%2C%7Blabel%3A%27D%3A+2.9%25%27%2Cdata%3A%5B86%5D%2CbackgroundColor%3A%27rgb%28255%2C+160%2C+122%29%27%7D%2C%7Blabel%3A%27F%3A+12.2%25%27%2Cdata%3A%5B359%5D%2CbackgroundColor%3A%27rgb%28205%2C+92%2C+92%29%27%7D%2C%7Blabel%3A%27S%3A+0.0%25%27%2Cdata%3A%5B0%5D%2CbackgroundColor%3A%27rgb%28143%2C+188%2C+143%29%27%7D%2C%7Blabel%3A%27NCR%3A+0.0%25%27%2Cdata%3A%5B1%5D%2CbackgroundColor%3A%27rgb%28216%2C+112%2C+147%29%27%7D%2C%7Blabel%3A%27W%3A+7.1%25%27%2Cdata%3A%5B207%5D%2CbackgroundColor%3A%27rgb%28147%2C+112%2C+216%29%27%7D%5D%7D%2Coptions%3A%7Btooltips%3A%7Benabled%3Afalse%7D%2Clayout%3A%7Bpadding%3A10%7D%2Cscales%3A%7BxAxes%3A%5B%7Boffset%3Atrue%2Cticks%3A%7Bmin%3A0%2Cmax%3A2935%2CstepSize%3A2%2Cdisplay%3Afalse%7D%2CscaleLabel%3A%7Bdisplay%3Afalse%7D%2CgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cstacked%3Atrue%2Clabel%3Afalse%7D%5D%2CyAxes%3A%5B%7BgridLines%3A%7Bdisplay%3Afalse%2Ccolor%3A%27%23fff%27%2CzeroLineColor%3A%27%23fff%27%2CzeroLineWidth%3A0%7D%2Cticks%3A%7Bmin%3A0%2Cmax%3A2935%2CstepSize%3A1%2Cdisplay%3Afalse%7D%2Cstacked%3Atrue%7D%5D%7D%2Clegend%3A%7Bposition%3A%27bottom%27%2Clabels%3A%7BfontSize%3A20%2CfontStyle%3A%27bold%27%2CboxWidth%3A5%2CusePointStyle%3Atrue%7D%7D%7D%7D&w=800&h=125&bkg=%23ffffff&f=png&v=2.9.4"
+    }
+  }
+]
