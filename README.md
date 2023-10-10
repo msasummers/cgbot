@@ -22,4 +22,5 @@ All commands are also avaliabe with the 'cg!' prefix *(cg!course cosc 3320)*, bu
 **In development:**
 - Caching popular Course Information
 - Instructor lookup
+- "Ranking" Professors and Courses
 - More universities!

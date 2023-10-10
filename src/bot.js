@@ -35,168 +35,195 @@ function auto(str, obj) {
 //COURSE command handling
 async function course (c) {
     //GET course data with CougarGrades API
-    if(!c.includes(' ')) {
-        var space = c.search(/\d/);
-        c = c.slice(0, space) + " " + c.slice(space);
+    var cache = fs.readFileSync('src/cache.json');
+    var cacheObj= JSON.parse(cache);
+    // console.log(JSON.stringify(cacheObj));
+
+    if(JSON.stringify(cacheObj).toLowerCase().includes(c.toLowerCase())) {
+        var embed = cacheObj.filter(x => x.description.toLowerCase() === c.toLowerCase())[0];
+        console.log(c + " was in cache");
+        // console.log(JSON.stringify(embed, null, 2));
+        return embed;
     }
-    const url = 'https://api.cougargrades.io/catalog/getCourseByName?courseName=' + c.replace(' ', '%20').toUpperCase();
 
-    //new blank red embed
-  let embed = { color: 0xff0000 };
+    else {
+        if(!c.includes(' ')) {
+            var space = c.search(/\d/);
+            c = c.slice(0, space) + " " + c.slice(space);
+        }
+        const url = 'https://api.cougargrades.io/catalog/getCourseByName?courseName=' + c.replace(' ', '%20').toUpperCase();
 
-  const rawResponse = await fetch(url, {
-      method: 'POST',
-      headers: {
-          'Accept': 'application/json',
-          },
-      body: JSON.stringify({a: 1, b: 'Textual content'})
-  });
-    try { //try to parse JSON
-        const content = await rawResponse.json();
+        //new blank red embed
+        let embed = { color: 0xff0000 };
 
-        //data for chart
-        const totalEnrolled = content.enrollment.totalEnrolled;
-        const totalA = content.enrollment.totalA;
-        const totalB = content.enrollment.totalB;
-        const totalC = content.enrollment.totalC;
-        const totalD = content.enrollment.totalD;
-        const totalF = content.enrollment.totalF;
-        const totalS = content.enrollment.totalS;
-        const totalNCR = content.enrollment.totalNCR;
-        const totalW = content.enrollment.totalW;
+        const rawResponse = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                },
+            body: JSON.stringify({a: 1, b: 'Textual content'})
+        });
+        try { //try to parse JSON
+            const content = await rawResponse.json();
 
-        //chart is pretty hard-coded, works though
-        const chart = new QuickChart();
-        var barOptions_stacked = {
-            tooltips: {
-                enabled: false
-            },
-            layout: {
-                padding: 10
-            },
-            scales: {
-                xAxes: [{
-                    offset: true,
+            //data for chart
+            const totalEnrolled = content.enrollment.totalEnrolled;
+            const totalA = content.enrollment.totalA;
+            const totalB = content.enrollment.totalB;
+            const totalC = content.enrollment.totalC;
+            const totalD = content.enrollment.totalD;
+            const totalF = content.enrollment.totalF;
+            const totalS = content.enrollment.totalS;
+            const totalNCR = content.enrollment.totalNCR;
+            const totalW = content.enrollment.totalW;
+
+            //chart is pretty hard-coded, works though
+            const chart = new QuickChart();
+            var barOptions_stacked = {
+                tooltips: {
+                    enabled: false
+                },
+                layout: {
+                    padding: 10
+                },
+                scales: {
+                    xAxes: [{
+                        offset: true,
+                        
+                        ticks: {
+                            min:0,
+                            max: totalEnrolled,
+                            stepSize: 2,
+                            display: false
+                        },
+                        scaleLabel:{
+                            display:false
+                        },
+                        gridLines: {
+                            display:false,
+                            color: "#fff",
+                            zeroLineColor: "#fff",
+                            zeroLineWidth: 0
+                        }, 
+                        stacked: true,
+                        label: false
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            display:false,
+                            color: "#fff",
+                            zeroLineColor: "#fff",
+                            zeroLineWidth: 0
+                        },
+                        ticks: {
+                            min:0,
+                            max: totalEnrolled,
+                            stepSize: 1,
+                            display: false
+                        },
+                        stacked: true,
+                    }]
+                },
+                legend:{
+                    position: 'bottom',
+                        labels: {
+                            fontSize: 20,
+                            fontStyle: 'bold',
+                            boxWidth: 5,
+                            usePointStyle: true
+                        }
+                },
+            }
+            chart.setConfig({
+                type: 'horizontalBar',
+                data: {
+                    labels: [" "],
                     
-                    ticks: {
-                        min:0,
-                        max: totalEnrolled,
-                        stepSize: 2,
-                        display: false
-                    },
-                    scaleLabel:{
-                        display:false
-                    },
-                    gridLines: {
-                        display:false,
-                        color: "#fff",
-                        zeroLineColor: "#fff",
-                        zeroLineWidth: 0
-                    }, 
-                    stacked: true,
-                    label: false
-                }],
-                yAxes: [{
-                    gridLines: {
-                        display:false,
-                        color: "#fff",
-                        zeroLineColor: "#fff",
-                        zeroLineWidth: 0
-                    },
-                    ticks: {
-                        min:0,
-                        max: totalEnrolled,
-                        stepSize: 1,
-                        display: false
-                    },
-                    stacked: true,
-                }]
-            },
-            legend:{
-                position: 'bottom',
-                    labels: {
-                        fontSize: 20,
-                        fontStyle: 'bold',
-                        boxWidth: 5,
-                        usePointStyle: true
-                    }
-            },
-        }
-        chart.setConfig({
-            type: 'horizontalBar',
-            data: {
-                labels: [" "],
-                
-                datasets: [{
-                    label: 'A: ' + (totalA/totalEnrolled*100).toFixed(1) + '%',
-                    data: [totalA],
-                    backgroundColor: "rgb(135, 206, 250)",
-                },{
-                    label: 'B: ' + (totalB/totalEnrolled*100).toFixed(1) + '%',
-                    data: [totalB],
-                    backgroundColor: "rgb(144, 238, 144)",
-                },{
-                    label: 'C: ' + (totalC/totalEnrolled*100).toFixed(1) + '%',
-                    data: [totalC],
-                    backgroundColor: "rgb(255, 255, 0)",
-                },{
-                    label: 'D: ' + (totalD/totalEnrolled*100).toFixed(1) + '%',
-                    data: [totalD],
-                    backgroundColor: "rgb(255, 160, 122)",
-                },{
-                    label: 'F: ' + (totalF/totalEnrolled*100).toFixed(1) + '%',
-                    data: [totalF],
-                    backgroundColor: "rgb(205, 92, 92)",
-                },{
-                    label: 'S: ' + (totalS/totalEnrolled*100).toFixed(1) + '%',
-                    data: [totalS],
-                    backgroundColor: "rgb(143, 188, 143)",
-                },{
-                    label: 'NCR: ' + (totalNCR/totalEnrolled*100).toFixed(1) + '%',
-                    data: [totalNCR],
-                    backgroundColor: "rgb(216, 112, 147)",
-                },{
-                    label: 'W: ' + (totalW/totalEnrolled*100).toFixed(1) + '%',
-                    data: [totalW],
-                    backgroundColor: "rgb(147, 112, 216)",
-                }]
-            },
-            options: barOptions_stacked,
-        }).setWidth(800).setHeight(125);
+                    datasets: [{
+                        label: 'A: ' + (totalA/totalEnrolled*100).toFixed(1) + '%',
+                        data: [totalA],
+                        backgroundColor: "rgb(135, 206, 250)",
+                    },{
+                        label: 'B: ' + (totalB/totalEnrolled*100).toFixed(1) + '%',
+                        data: [totalB],
+                        backgroundColor: "rgb(144, 238, 144)",
+                    },{
+                        label: 'C: ' + (totalC/totalEnrolled*100).toFixed(1) + '%',
+                        data: [totalC],
+                        backgroundColor: "rgb(255, 255, 0)",
+                    },{
+                        label: 'D: ' + (totalD/totalEnrolled*100).toFixed(1) + '%',
+                        data: [totalD],
+                        backgroundColor: "rgb(255, 160, 122)",
+                    },{
+                        label: 'F: ' + (totalF/totalEnrolled*100).toFixed(1) + '%',
+                        data: [totalF],
+                        backgroundColor: "rgb(205, 92, 92)",
+                    },{
+                        label: 'S: ' + (totalS/totalEnrolled*100).toFixed(1) + '%',
+                        data: [totalS],
+                        backgroundColor: "rgb(143, 188, 143)",
+                    },{
+                        label: 'NCR: ' + (totalNCR/totalEnrolled*100).toFixed(1) + '%',
+                        data: [totalNCR],
+                        backgroundColor: "rgb(216, 112, 147)",
+                    },{
+                        label: 'W: ' + (totalW/totalEnrolled*100).toFixed(1) + '%',
+                        data: [totalW],
+                        backgroundColor: "rgb(147, 112, 216)",
+                    }]
+                },
+                options: barOptions_stacked,
+            }).setWidth(800).setHeight(125);
 
-        //add course info and chart to embed
-        embed.title = content.description;
-        embed.description = content._id;
-        embed.url = "https://cougargrades.io/c/" + c.replace(' ', '%20').toUpperCase();
-        embed.fields = [{name: 'Average GPA: ' + content.GPA.average.toFixed(4) ,
-                        value: content.GPA.standardDeviation.toFixed(3) + ' SD  |  ' + (totalW/totalEnrolled*100).toFixed(2) + '% W',
-                        inline: true},
-                    {name: "We\\'re migrating to slash commands!", value: "Try: /course"}];
-        embed.image = {url: chart.getUrl()};
+            //add course info and chart to embed
+            embed.title = content.description;
+            embed.description = content._id;
+            embed.url = "https://cougargrades.io/c/" + c.replace(' ', '%20').toUpperCase();
+            embed.fields = [{name: 'Average GPA: ' + content.GPA.average.toFixed(4) ,
+                            value: content.GPA.standardDeviation.toFixed(3) + ' SD  |  ' + (totalW/totalEnrolled*100).toFixed(2) + '% W',
+                            inline: true},
+                        {name: "We\\'re migrating to slash commands!", value: "Try: /course"}];
+            embed.image = {url: chart.getUrl()};
 
-        //return happy embed :)
-        return embed;
-    } 
-    catch (e) { //handles mispelling
-        //use autocorrect on 'subject' and remove new line
-        corrected = autocorrect(c.substring(0, c.indexOf(' ')+1).toUpperCase()).replace(/(\r\n|\n|\r)/gm, "");
-        correctCourse = c.substring(c.indexOf(' ')+1);
-        try { //try to correct course number based on corrected subject
-            let subject = dictObj.find(el => el.name === corrected);
-            newCourse = await auto(correctCourse, subject.number);
-            correctCourse = newCourse;
-	    console.log("autocorrect: " + corrected + " " + correctCourse);
-        }
-        catch(e) {
-            console.log(e);
+        //cache embed
+            try{
+                cacheObj.push(embed)
+                var newCache = JSON.stringify(cacheObj, null, 2);
+                fs.writeFile('src/cache.json', newCache, err => {
+                    // error checking
+                    if(err) throw err;
+                    console.log("cached " + c);
+                });
+            }
+            catch(e) {
+                console.error(e)
+            }
+            //return happy embed :)
+            return embed;
         }
 
-        //suggest correct course
-        embed.title = 'Course not found :(';
-        embed.description = "Did you mean: " + corrected + " " + correctCourse + "?";
+        catch (e) { //handles mispelling
+            //use autocorrect on 'subject' and remove new line
+            corrected = autocorrect(c.substring(0, c.indexOf(' ')+1).toUpperCase()).replace(/(\r\n|\n|\r)/gm, "");
+            correctCourse = c.substring(c.indexOf(' ')+1);
+            try { //try to correct course number based on corrected subject
+                let subject = dictObj.find(el => el.name === corrected);
+                newCourse = await auto(correctCourse, subject.number);
+                correctCourse = newCourse;
+            console.log("autocorrect: " + corrected + " " + correctCourse);
+            }
+            catch(e) {
+                console.log(e);
+            }
 
-        //return error embed with suggested course
-        return embed;
+            //suggest correct course
+            embed.title = 'Course not found :(';
+            embed.description = "Did you mean: " + corrected + " " + correctCourse + "?";
+
+            //return error embed with suggested course
+            return embed;
+        }
     }
 };
 
