@@ -182,8 +182,7 @@ async function course (c) {
             embed.url = "https://cougargrades.io/c/" + c.replace(' ', '%20').toUpperCase();
             embed.fields = [{name: 'Average GPA: ' + content.GPA.average.toFixed(4) ,
                             value: content.GPA.standardDeviation.toFixed(3) + ' SD  |  ' + (totalW/totalEnrolled*100).toFixed(2) + '% W',
-                            inline: true},
-                        {name: "We\\'re migrating to slash commands!", value: "Try: /course"}];
+                            inline: true}];
             embed.image = {url: chart.getUrl()};
 
         //cache embed
